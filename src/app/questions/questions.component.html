@@ -1,0 +1,7 @@
+<div class="container text-center">
+    <h1>Select Quiz</h1>
+  <div class="mb-2"  *ngFor="let quiz of quizs">
+    <button (click)="selectQuiz(quiz)" class="btn btn-primary">{{ quiz }}</button>
+  </div>
+</div>
+ 
