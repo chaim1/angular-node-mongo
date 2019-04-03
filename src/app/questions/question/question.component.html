@@ -1,0 +1,33 @@
+<div *ngIf="!questions" class="loader mt-5"></div>
+
+<div *ngIf="questionNumber !== helpLenght">
+  <div *ngIf="questions">
+    <!-- {{questions[0] | json}} -->
+    <div>
+      <h3>{{ questions[questionNumber].qTitle }}</h3>
+      <h5>
+        {{ questions[questionNumber].question }} ({{ questionNumber + 1 }}-{{
+          helpLenght
+        }})
+      </h5>
+      <form [formGroup]="userAnswer" (ngSubmit)="onSend()">
+        <div *ngFor="let answer of questions[questionNumber].answers">
+          {{ answer.answer }}
+          <input
+            formControlName="answer"
+            type="radio"
+            [value]="answer.correctAnswer"
+          />
+        </div>
+        <button class="btn btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngIf="questionNumber == helpLenght">
+  <p>Your score {{Score.toFixed(2)}}</p>
+  <p>{{trueCounter}} correct answers</p>
+  <p *ngIf="Score<80" [ngStyle]="{'color': 'red'}">
+    Faild try agen
+  </p>
+</div>

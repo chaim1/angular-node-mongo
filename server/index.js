@@ -35,21 +35,21 @@ app.get('/quiz', function (req, res) {
       });
 });
 
+
 // get one Member
 app.get('/quiz/name:name', function (req, res) {
-  console.log(req.params);
-  res.json(req.params)
+  // console.log(req.params);
 
-  // console.log('getting all quiz');
-  // Quiz.find({})
-  //     .exec(function (err, Quizzes) {
-  //         if (err) {
-  //             res.send(404, 'Error has occurred!')
-  //         } else {
-  //             console.log(Quizzes);
-  //             res.json(Quizzes);
-  //         }
-  //     });
+  Quiz.find({qTitle: req.params.name})
+      .exec(function (err, Quizzes) {
+          if (err) {
+            console.log(err)
+              res.send(404, 'Error has occurred!')
+          } else {
+              res.json(Quizzes);
+              console.log(Quizzes)
+          }
+      });
 });
 app.get('/quiz/:id', function (req, res) {
   console.log('getting on Member');
@@ -70,11 +70,11 @@ app.get('/quiz/:id', function (req, res) {
 app.post('/quiz' , function(req,res) {
   var newQuiz = new Quiz();
   newQuiz.qTitle =    'PHP'; //req.body.name;
-  newQuiz.question =  'question';
+  newQuiz.question =  'question10';
   newQuiz.answers = [
       {
         answer: 'sdfa',
-        correctAnswer: true
+        correctAnswer: false
     },
     {
       answer: 'sdfa',
