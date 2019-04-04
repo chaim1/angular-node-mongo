@@ -12,12 +12,16 @@
       </h5>
       <form [formGroup]="userAnswer" (ngSubmit)="onSend()">
         <div *ngFor="let answer of questions[questionNumber].answers">
-          {{ answer.answer }}
-          <input
-            formControlName="answer"
-            type="radio"
-            [value]="answer.correctAnswer"
-          />
+          <div>
+            {{ answer.answer }}
+            <input
+              formControlName="answer"
+              type="radio"
+              name="answer"
+              [value]="answer.correctAnswer"
+              [id]="answer.correctAnswer"
+            />
+          </div>
         </div>
         <button class="btn btn-primary">Send</button>
       </form>
@@ -25,9 +29,9 @@
   </div>
 </div>
 <div *ngIf="questionNumber == helpLenght">
-  <p>Your score {{Score.toFixed(2)}}</p>
-  <p>{{trueCounter}} correct answers</p>
-  <p *ngIf="Score<80" [ngStyle]="{'color': 'red'}">
+  <p>Your score {{ Score.toFixed(2) }}</p>
+  <p>{{ trueCounter }} correct answers</p>
+  <p *ngIf="Score < 80" [ngStyle]="{ color: 'red' }">
     Faild try agen
   </p>
 </div>

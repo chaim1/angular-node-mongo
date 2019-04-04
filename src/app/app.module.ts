@@ -8,13 +8,15 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 import { QuestionsComponent } from "./questions/questions.component";
 import { QuestionComponent } from "./questions/question/question.component";
+import { AddQustionComponent } from './questions/add-qustion/add-qustion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     QuestionsComponent,
-    QuestionComponent
+    QuestionComponent,
+    AddQustionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,49 @@
+<form [formGroup]="QuestionForm" (ngSubmit)="onSaveQuestion()">
+  <div formGroupName="QuestionData">
+    <div>
+      <label for="questionName">Language question</label>
+      <input type="text" id="questionName" formControlName="questionName" />
+    </div>
+    <div>
+      <label for="question">Question</label>
+      <input type="text" id="question" formControlName="question" />
+    </div>
+    <div formGroupName="Answer1Data">
+      <label for="question">Answer1</label>
+      <input type="text" id="question" formControlName="Answer1" />
+      true<input type="checkbox" id="question" formControlName="Answer1true" [value]="" (click)="value1true()"/>
+    </div>
+    <div formGroupName="Answer2Data">
+      <label for="question">Answer2</label>
+      <input type="text" id="question" formControlName="Answer2" />
+      true<input type="checkbox" id="question" formControlName="Answer2true"  [value]="" (click)="value2true()"/>
+    </div>
+    <div formGroupName="Answer3Data">
+      <label for="question">Answer3</label>
+      <input type="text" id="question" formControlName="Answer3" />
+      true<input type="checkbox" id="question" formControlName="Answer3true"  [value]="" (click)="value3true()"/>
+    </div>
+    <div formGroupName="Answer4Data">
+      <label for="question">Answer4</label>
+      <input type="text" id="question" formControlName="Answer4" />
+      true<input type="checkbox" id="question" formControlName="Answer4true"  [value]="" (click)="value4true()"/>
+    </div>
+  </div>
+  <!-- <div *ngFor="let detail of Details">
+    <label>
+      <input type="radio" formControlName="detail" [value]="detail" />{{
+        detail
+      }}
+    </label>
+  </div> -->
+  <!-- <div formArrayName="Answers">
+    Answers
+    <div
+      *ngFor="let answer of QuestionForm.get('Answers').controls; let i = index"
+    >
+      <input type="text" [formControlName]="i" />
+    </div>
+  </div>
+  <button type="button" (click)="onAddAnswers()">+</button> -->
+  <button type="submit">Add Question</button>
+</form>
